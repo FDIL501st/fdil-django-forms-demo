@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 
-class ReportForm(models.Model):
+class Report(models.Model):
     """A form that is filled out by a user to report something."""
 
     class Location(models.TextChoices):
@@ -16,11 +16,12 @@ class ReportForm(models.Model):
         WORKSPACE2 = "workspace2", 'WorkSpace2'
         WORKSPACE3 = "workspace3", 'WorkSpace3'
 
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     date = models.DateField()
     what = models.TextField()
-    where = models.CharField(choices=Location)
+    where = models.CharField(choices=Location, max_length=15)
     reason = models.TextField()
 
     def __str__(self):
-        return self.name
+        return f"Report by {self.name} at {self.date}"

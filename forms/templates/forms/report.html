@@ -1,0 +1,11 @@
+{% extends 'forms/base.html' %}
+
+{% block body %}
+<form action="{% url 'forms:report' %}" method="POST">
+    {% csrf_token %}
+    {{ form }}
+<!-- passing along a Form object takes care of errors as well -->
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock body %}
