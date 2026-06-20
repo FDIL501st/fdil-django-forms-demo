@@ -1,0 +1,4 @@
+.venv
+/tailwindcss
+/postgres-data
+/static_root
