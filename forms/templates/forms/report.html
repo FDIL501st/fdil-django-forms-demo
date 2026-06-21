@@ -1,11 +1,19 @@
 {% extends 'forms/base.html' %}
 
+{% load static %}
+
+<!--{% block css %}<link rel="stylesheet" href="{% static 'forms/style.css' %}">{% endblock %}-->
+
 {% block body %}
-<form action="{% url 'forms:report' %}" method="POST">
-    {% csrf_token %}
-    {{ form }}
-<!-- passing along a Form object takes care of errors as well -->
-    <input type="submit" value="Submit">
-</form>
+<div class="flex flex-row space-x-2">
+    <div class="basis-1/8"></div>
+    <form class="basis-6/8 flex flex-col justify-center-safe space-y-4" action="{% url 'forms:report' %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+    <!-- passing along a Form object takes care of errors as well -->
+        <input class="rounded-full bg-blue-500 w-24px" type="submit" value="Submit">
+    </form>
+    <div class="basis-1/8"></div>
+</div>
 
 {% endblock body %}

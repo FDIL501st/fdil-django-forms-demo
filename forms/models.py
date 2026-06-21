@@ -24,4 +24,4 @@ class Report(models.Model):
     reason = models.TextField()
 
     def __str__(self):
-        return f"Report by {self.name} at {self.date}"
+        return f"Report by {self.name} at {self.date}.\n Event: {self.what}\n Location: {self.where}\n Reason: {self.reason}"

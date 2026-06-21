@@ -2,3 +2,4 @@
 /tailwindcss
 /postgres-data
 /static_root
+*.gguf
