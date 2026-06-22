@@ -7,11 +7,24 @@
 {% block body %}
 <div class="flex flex-row space-x-2">
     <div class="basis-1/8"></div>
-    <form class="basis-6/8 flex flex-col justify-center-safe space-y-4" action="{% url 'forms:report' %}" method="POST">
+    <form class="basis-6/8 flex flex-col bg-sky-50 dark:bg-slate-500 justify-items-center-safe space-y-4 px-3 py-2" action="{% url 'forms:report' %}" method="POST">
         {% csrf_token %}
-        {{ form }}
+        <!-- html every field manually, so can css the error and field labels -->
+        {% for field in form %}
+          <div class="mb-4">
+            <!-- div for field label/name and error beside it-->
+            <div class="flex items-center gap-2">
+              <label class="font-base">{{ field.label }}</label>
+              {% for error in field.errors %}
+                <span class="text-red-500 dark:text-red-600 text-sm">{{ error }}</span>
+              {% endfor %}
+            </div>
+
+            {{ field }}
+          </div>
+        {% endfor %}
     <!-- passing along a Form object takes care of errors as well -->
-        <input class="rounded-full bg-blue-500 w-24px" type="submit" value="Submit">
+        <input class="rounded-full bg-blue-500 text-black dark:text-green-200 w-1/5 align-self-center-safe" type="submit" value="Submit">
     </form>
     <div class="basis-1/8"></div>
 </div>

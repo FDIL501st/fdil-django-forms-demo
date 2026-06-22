@@ -15,7 +15,14 @@ class ReportForm(ModelForm):
 
         # tailwind styling
         for field in self.fields:
-            self.fields[field].widget.attrs.update({"class": "border-2 border-black"})
+            self.fields[field].widget.attrs.update(
+                {"class": "w-full border-2 border-black bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-400 focus:outline-none"}
+            )
+            # styling of fields when they get an error
+            if self.errors.get(field):
+                self.fields[field].widget.attrs.update(
+                    {"class": "w-full border-4 border-red-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none"}
+                )   # change border to red and made border larger
 
     def clean(self):
         cleaned = super().clean()
