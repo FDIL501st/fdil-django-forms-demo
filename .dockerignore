@@ -1,0 +1,8 @@
+.venv
+.idea
+.git
+*.env
+postgres-data
+tailwindcss
+compose.yaml
+*.md
