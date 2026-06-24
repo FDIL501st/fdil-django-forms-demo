@@ -42,10 +42,13 @@ services:
       context: .
     env_file:
       - .env
+    environment:
+      CMAKE_ARGS: "-DGGML_VULKAN=on"
+      COMPOSE: True
     volumes:
       - ./gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf:/app/gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf:ro
     ports:
-      - "8000:8000"
+      - "8080:8000"
     depends_on:
       db:
         condition: service_healthy

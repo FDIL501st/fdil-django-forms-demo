@@ -83,12 +83,16 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 # postgreSQL
+host = os.getenv("PG_HOST", "db")
+if os.getenv("COMPOSE", None) is None:
+    # is case of not using compose.yaml, need to set db host to localhost
+    host = "localhost"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "OPTIONS": {
             "pool": True,
-            "host": "localhost",    # can't use env variable as that is for
+            "host": host,
             "port": os.getenv("PG_PORT", 5432),
             "user": os.getenv("PG_USER", "DJANGO_USER"),
             "password": os.getenv("PG_PASSWORD", "password"),

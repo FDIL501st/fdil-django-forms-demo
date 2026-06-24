@@ -7,15 +7,19 @@
     <link rel="stylesheet" href="{% static 'forms/style.css' %}">
     <title>Home page</title>
 </head>
-<nav class="bg-white border-solid border-gray-200 h-24">
-
+<body class="bg-white dark:bg-gray-900">
+<nav class="border-solid border-gray-200">
     <!-- Links -->
-    <div class="flex flex-wrap gap-8">
-      <a href="{% url 'index' %}" class="text-lg px-4 text-gray-500 hover:text-gray-900">Home</a>
-      <a href="{% url 'forms:report' %}" class="text-lg px-4 bg-gray-900 text-white hover:bg-gray-700">Form</a>
+    <div class="flex flex-wrap justify-start items-stretch bg-sky-100 dark:bg-sky-900">
+        <div class="px-4 bg-stone-200 hover:bg-blue-800">
+            <a href="{% url 'index' %}" class="text-xl text-gray-500">Home</a>
+        </div>
+        <div class="px-4 bg-stone-400 hover:bg-blue-800">
+            <a href="{% url 'forms:report' %}" class="text-lg text-gray-500">Form</a>
+        </div>
+
     </div>
 </nav>
-<body class="flex flex-col min-h-screen bg-white dark:bg-gray-900 py-25">
-    <h1 class="text-black dark:text-stone-100 lg text-xl py-25">Welcome to django-forms demo</h1>
+    <h1 class="text-black dark:text-stone-100 text-3xl py-25">Welcome to django-forms demo</h1>
 </body>
 </html>

@@ -20,15 +20,30 @@ n_batch=512,
 n_gpu_layers=-1
 ```
 
+The demo install llama-cpp-python with vulkan support.
+
 ## pip
-Use requirements.txt to pip install everything
+First install llama-cpp-python with a specific backend support.
+I used vulkan support.
+`CMAKE_ARGS="-DGGML_VULKAN=on" pip install llama-cpp-python`
+
+Use requirements.txt to pip install everything else
 `pip install -r requirements.txt`
 
 # Running the demo
  First get the posrtgreSQL server running with 
- `docker compose up -d`
+ `docker compose up -d db`
 
  Then get the django server running with
  `python manage.py runserver`
 
  Go to [http://localhost:8000/forms](http://localhost:8000/forms) to mess around with the what and reason fields. Those are the fields that the llm validate the content of.
+
+
+## Option 2
+`docker compose up -d`
+
+This will also run the demo. Only downside is the llm will run on CPU. 
+I can't figure out how to get llama-cpp-python install with vulkan support in a docker container.
+
+This option lets you skip the pip part of the setup.
