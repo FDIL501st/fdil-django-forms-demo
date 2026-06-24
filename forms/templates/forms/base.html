@@ -9,6 +9,15 @@
     <title>{% block title %} Forms App {% endblock %}</title>
 </head>
 <body class="bg-white dark:bg-gray-900">
+<nav class="bg-white border-solid border-gray-200 h-24">
+
+    <!-- Links -->
+    <div class="flex flex-wrap gap-8">
+      <a href="{% url 'index' %}" class="text-lg px-4 text-gray-500 hover:text-gray-900">Home</a>
+      <a href="{% url 'forms:report' %}" class="text-lg px-4 bg-gray-900 text-white hover:bg-gray-700">Form</a>
+    </div>
+</nav>
+
 {% block body %}
 {% endblock body %}
 </body>

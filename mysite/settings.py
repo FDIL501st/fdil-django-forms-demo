@@ -88,7 +88,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "OPTIONS": {
             "pool": True,
-            "host": os.getenv("PG_HOST", "localhost"),
+            "host": "localhost",    # can't use env variable as that is for
             "port": os.getenv("PG_PORT", 5432),
             "user": os.getenv("PG_USER", "DJANGO_USER"),
             "password": os.getenv("PG_PASSWORD", "password"),
