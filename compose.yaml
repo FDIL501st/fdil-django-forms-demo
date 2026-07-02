@@ -45,6 +45,9 @@ services:
     environment:
       CMAKE_ARGS: "-DGGML_VULKAN=on"
       COMPOSE: True
+    devices:
+      - /dev/kfd
+      - /dev/dri
     volumes:
       - ./gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf:/app/gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf:ro
     ports:
